@@ -167,14 +167,14 @@ header {
 }
 
 .list li::before {
-    content: ""; /* Порожній вміст, адже ми використовуємо фонове зображення */
+    content: "";
     position: absolute;
     left: 0;
-    top: 50%; /* Центруємо вертикально */
-    transform: translateY(-50%); /* Точне центрування */
-    width: 20px; /* Ширина іконки */
-    height: 20px; /* Висота іконки */
-    background-image: url('../img/icons/check_mark_icon.svg'); /* Шлях до вашої іконки */
-    background-size: contain; /* Масштабуємо зображення */
-    background-repeat: no-repeat; /* Без повторення */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-image: url('../img/icons/check_mark_icon.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
   }
