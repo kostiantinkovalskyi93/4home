@@ -90,6 +90,18 @@ img {
     color: #282828;
 }
 
+.header__contact-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.header__contact-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
 .header__nav-link,
 .header__contacts-link {
     text-decoration: none;
@@ -138,7 +150,7 @@ img {
     width: 0;
     height: 1.5px;
     background-color: rgb(10, 158, 60);
-    transition: width 0.3s ease-in;
+    transition: width 0.15s ease-in;
 }
 
 .company__section-block h2:hover::after {
