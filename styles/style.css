@@ -66,7 +66,7 @@ img {
     gap: 80px;
     display: flex;
     justify-content: center;
-    font-size: 18px;
+    font-size: clamp(14px, 1.5vw, 18px);
     font-weight: 500;
     color: #2a2929;
     list-style: none;
@@ -106,7 +106,7 @@ img {
 .header__contacts-link {
     text-decoration: none;
     color: rgb(70, 69, 69);
-    font-size: 20px;
+    font-size: clamp(16px, 1.8vw, 20px);
     font-weight: 500;
     text-align: center;
     transition: color 0.3s ease;
@@ -129,14 +129,14 @@ img {
 }
 
 .company__section-block h1 {
-    font-size: 40px;
     margin-bottom: 20px;
+    font-size: clamp(28px, 3.5vw, 40px);
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .company__section-block h2 {
-    font-size: 25px;
-    margin: 15px 0;
+    font-size: clamp(20px, 2.5vw, 25px);
+    margin: 1rem 0;
     color:rgb(10, 158, 60);
     position: relative;
     display: inline-block;
@@ -163,7 +163,7 @@ img {
 }
 
 .company__section-block p{
-    font-size: 20px;
+    font-size: clamp(16px, 1.8vw, 20px);
     line-height: 1.6;
     text-indent: 25px;
 }
@@ -172,7 +172,7 @@ img {
     position: relative;
     padding-left: 30px;
     margin-bottom: 10px;
-    font-size: 20px;
+    font-size: clamp(16px, 1.8vw, 20px);
 }
 
 .list li::before {
