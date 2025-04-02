@@ -31,10 +31,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 20px;
 }
 
 .header__logo {
     width: 150px;
+    flex-shrink: 0;
 }
 
 .header__logo-img {
@@ -44,20 +46,24 @@ body {
 
 .header__contacts {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    gap: 20px;
 }
 
 .header__nav-list {
     display: flex;
-    gap: 40px;
+    gap: 20px;
     font-size: clamp(14px, 1.5vw, 18px);
     font-weight: 500;
     color: #2a2929;
     transition: color 0.3s ease-in;
+    margin: 0;
+    padding: 0;
 }
 
 .header__contact-item {
     display: flex;
+    align-items: center;
 }
 
 .header__contact-icon {
@@ -68,6 +74,10 @@ body {
 
 .header__contacts-link {
     font-size: 16px;
+}
+
+.header__nav-list li:nth-child(2) {
+margin-right: 40px;
 }
 
 .header__nav-link:hover,
@@ -86,32 +96,55 @@ body {
 .header__contacts-burger{
     display: none;
 }
+
 .header__nav-burger{
     display: none;
 }
-.contacts-burger-list{
-    display: none;
-}
-.nav-burger-list{
-    display: none;
-}
 
-.contacts-burger-activ{
+.contacts-burger-list,
+.nav-burger-list {
+    display: none;
     position: absolute;
-    top: 100px;
-    left: 0; 
-    display: flex;
-    flex-direction: column;
-    background-color: red;
-}
-
-.nav-burger-activ{
-    position: absolute;
-    top: 100px;
+    top: 70px;
     left: 0;
+    width: 100%;
+    max-width: 300px;
+    background-color: rgba(238, 228. 228. 0.95);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 10px 0;
+    padding: 15px;
+    z-index: 999;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s;
+}
+
+.contacts-burger-activ,
+.nav-burger-activ {
+     position: absolute;
+    top: 0px;
+    left: 250px;
     display: flex;
     flex-direction: column;
-    background-color: goldenrod;
+    background-color: rgba(222, 198, 198, 0.825);
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nav-burger-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-burger-list li,
+.contacts-burger-list a {
+    padding: 10px 15px;
+    font-size: clamp(16px, 2vw, 18px);
+    font-weight: 500;
+    color: #2a2929;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s;
 }
 
 
@@ -330,27 +363,25 @@ body {
     color: inherit;
 } 
 
-/* Стилі для контейнера FAQ */
 .faq__section-question {
     display: flex;
     align-items: center;
     cursor: pointer;
 }
 
-/* Стилі для гамбургера */
 .three.col {
-    padding: 0; /* Видаляємо зайвий padding */
-    margin: 0 10px 0 0; /* Додаємо відступ справа */
-    width: 40px; /* Фіксована ширина для гамбургера */
-    background: none; /* Прибираємо фон */
+    padding: 0;
+    margin: 0 10px 0 0;
+    width: 40px;
+    background: none;
 }
 
 .hamburger .line {
-    width: 30px; /* Зменшуємо розмір ліній */
-    height: 3px; /* Товщина ліній */
-    background-color: white; /* Колір ліній */
+    width: 30px;
+    height: 3px;
+    background-color: white;
     display: block;
-    margin: 5px auto; /* Відступ між лініями */
+    margin: 5px auto;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
@@ -374,9 +405,9 @@ body {
 }
 
 #hamburger-10.is-active .line:nth-child(1) {
-    width: 20px; /* Зменшуємо першу лінію */
+    width: 20px;
 }
 
 #hamburger-10.is-active .line:nth-child(2) {
-    width: 25px; /* Зменшуємо другу лінію */
+    width: 25px;
 }
