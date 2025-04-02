@@ -48,6 +48,7 @@ p {
 ul,
 ul li {
     list-style: none;
+    align-items: center;
 }
 
 img {

@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/script.js" defer></script>
     <title>Магазн 4HOME: Меблі на замовлення</title>
 </head>
 <body>
     <header class="header">
-        <div class="header__block">
+        <div class="header__block container">
             <div class="header__logo">
                 <img src="./img/icons/logo.png" class="header__logo-img" alt="logo"></a>
             </div>
             <nav class="header__nav">
                 <ul class="header__nav-list">
                     <li><a href="#company__section" class="header__nav-link">Про компанію</a></li>
-                    <li><a href="portfolio.html" class="header__nav-link">Портфоліо</a></li>
+                    <li><a href="./pages/portfolio.html" class="header__nav-link">Портфоліо</a></li>
                     <li><a href="#contact__section" class="header__nav-link">Залишити заявку</a></li>
                     <li><a href="#faq__section" class="header__nav-link">Питання та відповіді</a></li>
                 </ul>
@@ -31,6 +33,31 @@
                     <img src="./img/icons/phone-icon.png" alt="phone icon" class="header__contact-icon">
                     <a href="tel:+380993002245" class="header__contacts-link">099 300 22 45 (Сергій)</a>
                 </div>
+    
+<!--  бургер меню-->
+
+            <div class="header__contacts-burger" id="header__contacts-burger">
+                <img src="./img/icons/phone-icon.png" alt="phone icon" class="header__contact-icon">
+            </div>
+
+            <div class="contacts-burger-list" id="contacts-burger-list">
+                <a href="tel:+380976297110" class="header__contacts-link">097 629 71 10 (Анатолій)</a>
+                <a href="tel:+380993002245" class="header__contacts-link">099 300 22 45 (Сергій)</a>
+            </div>
+
+            <div class="header__nav-burger" id="header__nav-burger">
+                <img src="./img/icons/telegram-icon.png" alt="">
+            </div>
+
+            <div class="nav-burger-list" id="nav-burger-list">
+                <ul >
+                    <li><a href="#company__section" class="header__nav-link">Про компанію</a></li>
+                    <li><a href="portfolio.html" class="header__nav-link">Портфоліо</a></li>
+                    <li><a href="#contact__section" class="header__nav-link">Залишити заявку</a></li>
+                    <li><a href="#faq__section" class="header__nav-link">Питання та відповіді</a>
+                    <li><a href="tel:+380976297110" class="header__contacts-link">097 629 71 10 (Анатолій)</a></li>
+                    <li><a href="tel:+380993002245" class="header__contacts-link">099 300 22 45 (Сергій)</a></li>
+                </ul>
             </div>
         </div>
     </header>
@@ -59,8 +86,14 @@
                 <h2>Запитання та відповіді</h2>
                 <div class="faq__section-item">
                     <div class="faq__section-question" onclick="toggleAnswer(this)">
-                        <span class="toggle-btn">+</span>
-                        <span>1. Який термін виготовлення меблів на замовлення?</span>
+                        <div class="three col">
+                            <div class="hamburger" id="hamburger-10">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <span>Який термін виготовлення меблів на замовлення?</span>
                     </div>
                     <div class="faq__section-answer">
                         Термін залежить від складності проєкту та обсягу замовлення. Зазвичай виготовлення кухонь, шаф чи столів займає від 3 до 6 тижнів. Точні строки ми узгодимо після затвердження дизайну.
@@ -69,8 +102,14 @@
         
                 <div class="faq__section-item">
                     <div class="faq__section-question" onclick="toggleAnswer(this)">
-                        <span class="toggle-btn">+</span>
-                        <span>2. Чи можна замовити меблі за моїми розмірами?</span>
+                        <div class="three col">
+                            <div class="hamburger" id="hamburger-10">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <span>Чи можна замовити меблі за моїми розмірами?</span>
                     </div>
                     <div class="faq__section-answer">
                         Так, ми спеціалізуємося на індивідуальних замовленнях. Усі меблі виготовляються за вашими розмірами та побажаннями.
@@ -79,8 +118,14 @@
         
                 <div class="faq__section-item">
                     <div class="faq__section-question" onclick="toggleAnswer(this)">
-                        <span class="toggle-btn">+</span>
-                        <span>3. Які матеріали ви використовуєте?</span>
+                        <div class="three col">
+                            <div class="hamburger" id="hamburger-10">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <span>Які матеріали ви використовуєте?</span>
                     </div>
                     <div class="faq__section-answer">
                         Ми працюємо з якісними матеріалами: ДСП, МДФ, натуральне дерево, шпон, а також фурнітурою від перевірених виробників (Blum, Hettich тощо). Ви можете обрати матеріали під свій бюджет.
@@ -89,8 +134,14 @@
         
                 <div class="faq__section-item">
                     <div class="faq__section-question" onclick="toggleAnswer(this)">
-                        <span class="toggle-btn">+</span>
-                        <span>4. Чи робите ви дизайн-проєкт перед виготовленням?</span>
+                        <div class="three col">
+                            <div class="hamburger" id="hamburger-10">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <span>Чи робите ви дизайн-проєкт перед виготовленням?</span>
                     </div>
                     <div class="faq__section-answer">
                         Так, ми пропонуємо розробку 3D-візуалізації, щоб ви могли побачити, як виглядатимуть меблі у вашому просторі. Послуга входить у вартість замовлення.
@@ -99,8 +150,14 @@
         
                 <div class="faq__section-item">
                     <div class="faq__section-question" onclick="toggleAnswer(this)">
-                        <span class="toggle-btn">+</span>
-                        <span>5. Як відбувається процес замовлення?</span>
+                        <div class="three col">
+                            <div class="hamburger" id="hamburger-10">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <span>Як відбувається процес замовлення?</span>
                     </div>
                     <div class="faq__section-answer">
                         Ви залишаєте заявку, наш менеджер зв’язується з вами, потім ми проводимо заміри, розробляємо проєкт, узгоджуємо деталі та приступаємо до виготовлення.
@@ -109,8 +166,14 @@
         
                 <div class="faq__section-item">
                     <div class="faq__section-question" onclick="toggleAnswer(this)">
-                        <span class="toggle-btn">+</span>
-                        <span>6. Чи є у вас доставка та встановлення?</span>
+                        <div class="three col">
+                            <div class="hamburger" id="hamburger-10">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <span>Чи є у вас доставка та встановлення?</span>
                     </div>
                     <div class="faq__section-answer">
                         Так, ми доставляємо меблі та пропонуємо професійний монтаж. Вартість залежить від вашого місця розташування.
@@ -119,8 +182,14 @@
         
                 <div class="faq__section-item">
                     <div class="faq__section-question" onclick="toggleAnswer(this)">
-                        <span class="toggle-btn">+</span>
-                        <span>7. Яка гарантія на ваші меблі?</span>
+                        <div class="three col">
+                            <div class="hamburger" id="hamburger-10">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <span>Яка гарантія на ваші меблі?</span>
                     </div>
                     <div class="faq__section-answer">
                         Ми надаємо гарантію від 1 до 3 років залежно від типу меблів та матеріалів.
@@ -129,8 +198,14 @@
         
                 <div class="faq__section-item">
                     <div class="faq__section-question" onclick="toggleAnswer(this)">
-                        <span class="toggle-btn">+</span>
-                        <span>8. Чи можна замовити лише одну тумбу чи стіл, а не цілий комплект?</span>
+                        <div class="three col">
+                            <div class="hamburger" id="hamburger-10">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <span>Чи можна замовити лише одну тумбу чи стіл, а не цілий комплект?</span>
                     </div>
                     <div class="faq__section-answer">
                         Звісно, ми виготовляємо як окремі предмети, так і цілі гарнітури на ваш вибір.
@@ -139,8 +214,14 @@
         
                 <div class="faq__section-item">
                     <div class="faq__section-question" onclick="toggleAnswer(this)">
-                        <span class="toggle-btn">+</span>
-                        <span>9. Як розрахувати попередню вартість?</span>
+                        <div class="three col">
+                            <div class="hamburger" id="hamburger-10">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <span>Як розрахувати попередню вартість?</span>
                     </div>
                     <div class="faq__section-answer">
                         Для цього потрібно надати нам розміри, обрати матеріали та фурнітуру. Ми підготуємо детальний кошторис після консультації.
@@ -149,8 +230,14 @@
         
                 <div class="faq__section-item">
                     <div class="faq__section-question" onclick="toggleAnswer(this)">
-                        <span class="toggle-btn">+</span>
-                        <span>10. Чи враховуєте ви особливості приміщення (наприклад, нерівні стіни)?</span>
+                        <div class="three col">
+                            <div class="hamburger" id="hamburger-10">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <span>Чи враховуєте ви особливості приміщення (наприклад, нерівні стіни)?</span>
                     </div>
                     <div class="faq__section-answer">
                         Так, наші фахівці проводять заміри та адаптують меблі під особливості вашого простору.
@@ -159,8 +246,14 @@
         
                 <div class="faq__section-item">
                     <div class="faq__section-question" onclick="toggleAnswer(this)">
-                        <span class="toggle-btn">+</span>
-                        <span>11. Чи можна обрати колір і текстуру?</span>
+                        <div class="three col">
+                            <div class="hamburger" id="hamburger-10">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <span>Чи можна обрати колір і текстуру?</span>
                     </div>
                     <div class="faq__section-answer">
                         Так, у нас широкий вибір кольорів, текстур і покриттів. Ви можете підібрати все під свій інтер’єр.
@@ -169,8 +262,14 @@
         
                 <div class="faq__section-item">
                     <div class="faq__section-question" onclick="toggleAnswer(this)">
-                        <span class="toggle-btn">+</span>
-                        <span>12. Що робити, якщо мені не сподобається готовий виріб?</span>
+                        <div class="three col">
+                            <div class="hamburger" id="hamburger-10">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <span>Що робити, якщо мені не сподобається готовий виріб?</span>
                     </div>
                     <div class="faq__section-answer">
                         Ми узгоджуємо всі деталі на етапі проєктування. Якщо виникнуть проблеми, зв’яжіться з нами — ми завжди йдемо назустріч клієнтам.
@@ -179,8 +278,14 @@
         
                 <div class="faq__section-item">
                     <div class="faq__section-question" onclick="toggleAnswer(this)">
-                        <span class="toggle-btn">+</span>
-                        <span>13. Чи працюєте ви з нестандартними проєктами?</span>
+                        <div class="three col">
+                            <div class="hamburger" id="hamburger-10">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <span>Чи працюєте ви з нестандартними проєктами?</span>
                     </div>
                     <div class="faq__section-answer">
                         Так, ми готові реалізувати будь-які ідеї, включно з нестандартними формами чи розмірами.
@@ -189,8 +294,14 @@
         
                 <div class="faq__section-item">
                     <div class="faq__section-question" onclick="toggleAnswer(this)">
-                        <span class="toggle-btn">+</span>
-                        <span>14. Який мінімальний бюджет для замовлення кухні?</span>
+                        <div class="three col">
+                            <div class="hamburger" id="hamburger-10">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <span>Який мінімальний бюджет для замовлення кухні?</span>
                     </div>
                     <div class="faq__section-answer">
                         Вартість напряму залежить від розмірів, матеріалів та комплектації.
@@ -199,8 +310,14 @@
         
                 <div class="faq__section-item">
                     <div class="faq__section-question" onclick="toggleAnswer(this)">
-                        <span class="toggle-btn">+</span>
-                        <span>15. Чи можна подивитися зразки ваших робіт?</span>
+                        <div class="three col">
+                            <div class="hamburger" id="hamburger-10">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                        <span>Чи можна подивитися зразки ваших робіт?</span>
                     </div>
                     <div class="faq__section-answer">
                         Так, на нашому сайті є портфоліо, а також ми можемо показати зразки матеріалів під час консультації.
@@ -213,6 +330,5 @@
     <footer>
 
     </footer>
-    <script src="./js/script.js"></script>
 </body>
 </html>
