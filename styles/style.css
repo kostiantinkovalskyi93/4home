@@ -25,6 +25,9 @@ body {
     background-color: rgb(238, 228, 228);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    height: 80px;
+    display: flex;
+    align-items: center;
 }
 
 .header__block {
@@ -76,10 +79,6 @@ body {
     font-size: 16px;
 }
 
-.header__nav-list li:nth-child(2) {
-margin-right: 40px;
-}
-
 .header__nav-link:hover,
 .header__contacts-link:hover {
     color: #007bff;
@@ -88,7 +87,7 @@ margin-right: 40px;
 .header__nav-link,
 .header__contacts-link {
     color: rgb(70, 69, 69);
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     transition: color 0.3s ease;
 }
@@ -121,24 +120,27 @@ margin-right: 40px;
 
 .contacts-burger-activ,
 .nav-burger-activ {
-     position: absolute;
-    top: 0px;
-    left: 250px;
+    position: absolute;
+    top: 80px;
+    right: 0px;
+    left: auto;
     display: flex;
     flex-direction: column;
-    background-color: rgba(222, 198, 198, 0.825);
+    background-color: rgba(222, 198, 198, 0.99);
     opacity: 1;
     transform: translateY(0);
+    max-width: 300px;
+    width: 100%;
 }
 
-.nav-burger-list ul {
+.header__nav-burger-list {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.nav-burger-list li,
-.contacts-burger-list a {
+.header__nav-burger-item,
+.header__contacts-burger-link {
     padding: 10px 15px;
     font-size: clamp(16px, 2vw, 18px);
     font-weight: 500;
@@ -147,13 +149,11 @@ margin-right: 40px;
     transition: background-color 0.3s ease, color 0.3s;
 }
 
-
 @media (max-width: 1320px){
 
     .header__contact-item{
         display: none;
     }
-
     .header__contacts-burger {
         display: block;
         padding-right: 10%;
@@ -169,42 +169,33 @@ margin-right: 40px;
     .header__contacts-burger {
         display: none;
     }
-    .header__nav-list{
+    .header__nav-list {
         display: none;
     }
-    .header__nav-burger{
+    .header__nav-burger {
         display: block;
         width: 40px;
         height: 40px;
         cursor: pointer;
     }
+    .nav-burger-activ {
+        top: 80px;
+        right: 0px;
+        width: calc(100% - 30px);
+        max-width: 300px;
+    }
 }
 /*  */
-.company__section-block {
-    position: relative;
-    padding: 120px 40px 5px;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1470px;
-    text-align: justify;
-    background-image: url("../img/photos/bg_picture.png");
+
+.company__section {
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/photos/bg_picture.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    padding: 120px 0;
 }
 
-.company__section-block::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-}
-
-.company__section-block h1 {
+.company__section-title {
     margin-bottom: 20px;
     font-size: 40px;
     color: #fff;
@@ -213,7 +204,7 @@ margin-right: 40px;
     z-index: 2;
 }
 
-.company__section-block h2 {
+.company__section-subtitle {
     font-size: 25px;
     margin: 1rem 0;
     color:rgb(10, 158, 60);
@@ -223,7 +214,7 @@ margin-right: 40px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
-.company__section-block h2::after {
+.company__section-subtitle::after {
     content: "";
     position: absolute;
     left: 0;
@@ -234,18 +225,18 @@ margin-right: 40px;
     transition: width 0.25s ease-in;
 }
 
-.company__section-block h2:hover::after {
+.company__section-subtitle:hover::after {
     width: 100%;
 }
 
-.company__section-block ul {
+.company__section-list {
     list-style: none;
     padding: 0;
     position: relative;
     z-index: 2;
 }
 
-.company__section-block p{
+.company__section-paragraph{
     font-size: clamp(16px, 1.8vw, 20px);
     line-height: 1.6;
     text-indent: 25px;
@@ -255,7 +246,7 @@ margin-right: 40px;
     z-index: 2;
 }
 
-.company__section-block li{
+.company__section-item {
     position: relative;
     padding-left: 30px;
     margin-bottom: 10px;
@@ -265,7 +256,12 @@ margin-right: 40px;
     z-index: 2;
 }
 
-.list li::before {
+.company__section-list {
+    list-style: none;
+    padding: 0;
+}
+
+.company__section-item::before {
     content: "";
     position: absolute;
     left: 0;
@@ -279,42 +275,37 @@ margin-right: 40px;
     z-index: 2;
 }
 
-.list {
-    list-style: none;
-    padding: 0;
-}
-
-.list li {
+.company__section-item {
     opacity: 0;
     transform: translateX(100%);
     animation: slideIn 0.5s forwards;
 }
 
-.list li:nth-child(1) {
+.company__section-item:nth-child(1) {
     animation-delay: 0.5s;
 }
 
-.list li:nth-child(2) {
+.company__section-item:nth-child(2) {
     animation-delay: 1s;
 }
 
-.list li:nth-child(3) {
+.company__section-item:nth-child(3) {
     animation-delay: 1.5s;
 }
 
-.list li:nth-child(4) {
+.company__section-item:nth-child(4) {
     animation-delay: 2s;
 }
 
-.list li:nth-child(5) {
+.company__section-item:nth-child(5) {
     animation-delay: 2.5s;
 }
 
-.list li:nth-child(6) {
+.company__section-item:nth-child(6) {
     animation-delay: 3s;
 }
 
-.list li:nth-child(7) {
+.company__section-item:nth-child(7) {
     animation-delay: 3.5s;
 }
 
@@ -325,34 +316,45 @@ margin-right: 40px;
     }
 }
 
+#faq__section {
+    position: relative;
+}
+
+#faq__section:before {
+    content: '';
+    display: block;
+    height: 80px;
+    visibility: hidden;
+}
+
 .faq__section-container {
     position: relative;
-    padding: 5px 40px 40px;
+    padding: 5px 5px 40px;
     margin: 0 auto;
     width: 100%;
     max-width: 1470px;
 }
 
-.faq__section-container h2 {
+.faq__section-subtitle {
     font-size: clamp(20px, 2.5vw, 25px);
     margin: 1rem 0;
-    color:rgb(198, 84, 3);
+    color:rgb(178, 105, 53);
     position: relative;
     display: inline-block;
 }
 
-.faq__section-container h2::after {
+.faq__section-subtitle::after {
     content: "";
     position: absolute;
     left: 0;
     bottom: -2.2px;
     width: 0;
     height: 1.5px;
-    background-color: rgb(198, 84, 3);
+    background-color: rgb(178, 105, 53);
     transition: width 0.25s ease-in;
 }
 
-.faq__section-container h2:hover::after {
+.faq__section-subtitle:hover::after {
     width: 100%;
 }
 
@@ -362,7 +364,7 @@ margin-right: 40px;
     padding: 10px;
     border-radius: 5px;
     letter-spacing: 0.03vh;
-    background-color: rgb(249, 115, 63);
+    background-color: rgb(183, 143, 118);
     color: white;
     transition: background-color 0.35s, color 0.35s;
 }
@@ -370,12 +372,6 @@ margin-right: 40px;
 .faq__section-item.active {
     background-color: hsla(0, 0%, 0%, 0.784);
     color: white;
-}
-
-.faq__section-question {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
 }
 
 .toggle-btn {
