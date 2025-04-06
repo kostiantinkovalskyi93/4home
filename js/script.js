@@ -62,3 +62,76 @@ faqSection.addEventListener('click', (e) => {
         closeAllAnswers();
     }
 });
+
+const contactForm = document.querySelector('#contact-form');
+
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const formData = {
+        name: document.querySelector('#name').value,
+        phone: document.querySelector('#phone').value,
+        email: document.querySelector('#email').value,
+        comment: document.querySelector('#comment').value
+    };
+
+    console.log('Form Data:', formData);
+
+    fetch('https://example.com/api/submit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert('Ваша заявка успішно відправлена!');
+        contactForm.reset();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Виникла помилка при відправленні заявки.');
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('#contact-form');
+    const phoneInput = document.querySelector('#phone');
+
+    phoneInput.addEventListener('input', function () {
+        this.value = this.value.replace(/\D/g, '');
+    });
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const phoneValue = phoneInput.value.trim();
+
+        if (!/^\d{10,13}$/.test(phoneValue)) {
+            alert('Будь ласка, введіть коректний номер телефону (тільки цифри, 10-13 символів)');
+            return;
+        }
+
+        const formData = new FormData(form);
+
+        fetch('send-form.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Помилка при відправці форми');
+            }
+            return response.text();
+        })
+        .then(data => {
+            alert('Дякуємо! Заявку відправлено ✅');
+            form.reset();
+        })
+        .catch(error => {
+            console.error('Помилка:', error);
+            alert('Упс 😬 Щось пішло не так. Спробуйте ще раз.');
+        });
+    });
+});
