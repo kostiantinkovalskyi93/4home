@@ -28,6 +28,8 @@ document.addEventListener("click", (e) => {
     }
 });
 
+// Секція питання-відповіді
+
 function closeAllAnswers() {
     const allAnswers = faqSection.querySelectorAll('.faq__section-answer');
     const allHamburgers = faqSection.querySelectorAll('.hamburger');
@@ -62,6 +64,8 @@ faqSection.addEventListener('click', (e) => {
         closeAllAnswers();
     }
 });
+
+// Секція форм
 
 const contactForm = document.querySelector('#contact-form');
 
@@ -133,5 +137,28 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Помилка:', error);
             alert('Упс 😬 Щось пішло не так. Спробуйте ще раз.');
         });
+    });
+});
+
+// Футер сайту
+
+const scrollTopBtn = document.querySelector('#scrollTopBtn');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+        scrollTopBtn.style.display = 'flex';
+        scrollTopBtn.style.opacity = '1';
+    } else {
+        scrollTopBtn.style.opacity = '0';
+        setTimeout(() => {
+            scrollTopBtn.style.display = 'none';
+        }, 300);
+    }
+});
+
+scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
     });
 });
