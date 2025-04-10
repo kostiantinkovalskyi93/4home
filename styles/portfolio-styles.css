@@ -7,6 +7,7 @@
 
 .portfolio__container-subtitle {
     margin-top: 20px;
+    margin-bottom: 30px;
     font-size: clamp(20px, 2.5vw, 25px);
     color: rgb(178, 105, 53);
     position: relative;
@@ -28,36 +29,54 @@
     width: 100%;
 }
 
-.custom-slick-slider {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    max-width: 1400px;
-    /* margin: 0 auto; */
-    padding: 20px 0;
+.slider-for {
+    margin-bottom: 30px;
 }
 
-.custom-slick-slider .slick-slide {
+.slider-for .slick-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10 px rgba(0, 0, 0, 0.2);
+}
+
+.slider-nav {
+    margin: 0 auto 60px;
+    max-width: 1000px;
+}
+
+.slider-for, .slider-nav {
+    display: block;
+    width: 100%;
+}
+
+.slider-for img, .slider-nav img {
+    max-width: 100%;
+    height: auto;
+}
+
+.slider-nav .slick-slide {
     transition: all 0.3s ease;
     opacity: 0.5;
-    transform: scale(0.6);
-    margin: 0 10px;
+    transform: scale(0.8);
+    padding: 0 10px;
 }
 
-.custom-slick-slider .slick-center {
+.slider-nav .slick-center {
     opacity: 1;
     transform: scale(1);
 }
 
-.custom-slick-slider .slick-slide img {
+.slider-nav .slick-slide img {
     width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
 }
 
-.slick-prev, .slick-next {
+.slick-prev,
+.slick-next {
     width: 40px;
     height: 40px;
     z-index: 1;
@@ -66,7 +85,13 @@
     transition: background-color 0.3s ease;
 }
 
-.slick-prev:before, .slick-next:before {
+.slick-prev:hover, 
+.slick-next:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.slick-prev:before,
+.slick-next:before {
     font-size: 20px;
     color: #fff;
 }

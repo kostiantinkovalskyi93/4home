@@ -5,29 +5,33 @@ const navBurgerList = document.querySelector("#nav-burger-list");
 const faqSection = document.querySelector("#faq__section");
 
 function closeAllMenus() {
-    contactsBurgerList.classList.remove("contacts-burger-activ");
-    navBurgerList.classList.remove("nav-burger-activ");
+    if(contactsBurgerList) contactsBurgerList.classList.remove("contacts-burger-activ");
+    if(navBurgerList) navBurgerList.classList.remove("nav-burger-activ");
 }
 
+if (contactsBurger) {
 contactsBurger.addEventListener("click", (e) => {
     e.stopPropagation();
     contactsBurgerList.classList.toggle("contacts-burger-activ");
     navBurgerList.classList.remove("nav-burger-activ");
 });
+}
 
+if(headerNavBurger) {
 headerNavBurger.addEventListener("click", (e) => {
     e.stopPropagation();
     navBurgerList.classList.toggle("nav-burger-activ");
     contactsBurgerList.classList.remove("contacts-burger-activ");
 });
-
+}
+if(document.body.contains(contactsBurger) || document.body.contains(headerNavBurger)) {
 document.addEventListener("click", (e) => {
     if (!contactsBurger.contains(e.target) && !contactsBurgerList.contains(e.target) &&
         !headerNavBurger.contains(e.target) && !navBurgerList.contains(e.target)) {
         closeAllMenus();
     }
 });
-
+}
 // Секція питання-відповіді
 
 function closeAllAnswers() {
@@ -39,7 +43,7 @@ function closeAllAnswers() {
     allHamburgers.forEach(hamb => hamb.classList.remove('is-active'));
     allItems.forEach(item => item.classList.remove('active'));
 }
-
+if (faqSection) {
 faqSection.addEventListener('click', (e) => {
     const question = e.target.closest('.faq__section-question');
 
@@ -64,11 +68,12 @@ faqSection.addEventListener('click', (e) => {
         closeAllAnswers();
     }
 });
-
+}
 // Секція форм
 
 const contactForm = document.querySelector('#contact-form');
 
+if (contactForm) {
 contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -98,15 +103,18 @@ contactForm.addEventListener('submit', (e) => {
         alert('Виникла помилка при відправленні заявки.');
     });
 });
-
+}
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('#contact-form');
     const phoneInput = document.querySelector('#phone');
 
+    if (phoneInput) {
     phoneInput.addEventListener('input', function () {
         this.value = this.value.replace(/\D/g, '');
     });
+    }
 
+    if(form){
     form.addEventListener('submit', function (e) {
         e.preventDefault();
 
@@ -135,10 +143,12 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(error => {
             console.error('Помилка:', error);
-            alert('Упс 😬 Щось пішло не так. Спробуйте ще раз.');
+            alert('Щось пішло не так. Спробуйте ще раз.');
         });
     });
+}
 });
+
 
 // Футер сайту
 
@@ -162,3 +172,27 @@ scrollTopBtn.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+
+// slick - slider
+if (typeof jQuery === 'undefined') {
+    console.log('jQuery не завантажено!');
+} else {
+    console.log('jQuery завантажено, версія: ' + jQuery.fn.jquery);
+$(document).ready(function(){
+    $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.slider-nav'
+    });
+    $('.slider-nav').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.slider-for',
+        dots: true,
+        centerMode: true,
+        focusOnSelect: true
+        });
+    }); 
+}
