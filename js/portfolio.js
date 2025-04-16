@@ -48,7 +48,6 @@ if (document.body.contains(contactsBurger) || document.body.contains(headerNavBu
 
 // Кнопка прокрутки вгору
 const scrollTopBtn = document.querySelector("#scrollTopBtn");
-
 if (scrollTopBtn) {
     window.addEventListener("scroll", () => {
         if (window.scrollY > 200) {
@@ -61,7 +60,6 @@ if (scrollTopBtn) {
             }, 300);
         }
     });
-
     scrollTopBtn.addEventListener("click", () => {
         window.scrollTo({
             top: 0,
@@ -77,8 +75,12 @@ if (typeof jQuery !== "undefined" && typeof $.fn.slick !== "undefined") {
         $(".category__slider-block").each(function (index) {
             const $sliderFor = $(this).find(".slider-for");
             const $sliderNav = $(this).find(".slider-nav");
-
-            // Ініціалізація головного слайдера
+            
+            // Спочатку додаємо унікальні класи для зв'язки слайдерів
+            $sliderFor.addClass(`slider-for-${index}`);
+            $sliderNav.addClass(`slider-nav-${index}`);
+            
+            // Потім ініціалізуємо головний слайдер
             $sliderFor.slick({
                 slidesToShow: 1,
                 slidesToScroll: 1,
@@ -86,7 +88,7 @@ if (typeof jQuery !== "undefined" && typeof $.fn.slick !== "undefined") {
                 fade: true,
                 asNavFor: `.slider-nav-${index}`,
             });
-
+            
             // Ініціалізація навігаційного слайдера
             $sliderNav.slick({
                 slidesToShow: 3,
@@ -110,11 +112,7 @@ if (typeof jQuery !== "undefined" && typeof $.fn.slick !== "undefined") {
                     },
                 ],
             });
-
-            // Додаємо унікальні класи для зв’язки слайдерів
-            $sliderFor.addClass(`slider-for-${index}`);
-            $sliderNav.addClass(`slider-nav-${index}`);
-
+            
             // Обробка кліку на зображення в slider-for
             $sliderFor.on("click", "img", function (e) {
                 e.preventDefault();
@@ -125,23 +123,23 @@ if (typeof jQuery !== "undefined" && typeof $.fn.slick !== "undefined") {
                     return $(this).attr("src");
                 }).get();
                 const clickedIndex = $sliderFor.slick("slickCurrentSlide");
-
+                
                 // Очищаємо попередній слайдер
                 if ($modalSlider.hasClass("slick-initialized")) {
                     $modalSlider.slick("unslick");
                 }
                 $modalSlider.empty();
-
+                
                 // Додаємо зображення до модального слайдера
                 images.forEach((src) => {
                     $modalSlider.append(
                         `<div><img src="${src}" alt="Зображення шафи-купе"></div>`
                     );
                 });
-
+                
                 // Відкриваємо модальне вікно
                 $modal.addClass("fullscreen-modal--active");
-
+                
                 // Ініціалізація повноекранного слайдера
                 setTimeout(() => {
                     $modalSlider.slick({
@@ -152,13 +150,12 @@ if (typeof jQuery !== "undefined" && typeof $.fn.slick !== "undefined") {
                         initialSlide: clickedIndex,
                         infinite: true,
                     });
-
                     // Додаємо фокус на модальне вікно для обробки клавіатури
                     $modalSlider.focus();
                 }, 100);
             });
         });
-
+        
         // Закриття модального вікна кнопкою
         $("#fullscreenModalClose").on("click", function () {
             const $modal = $("#fullscreenModal");
@@ -168,7 +165,7 @@ if (typeof jQuery !== "undefined" && typeof $.fn.slick !== "undefined") {
                 $modalSlider.slick("unslick");
             }
         });
-
+        
         // Закриття модального вікна кліком за межі зображення
         $("#fullscreenModal").on("click", function (e) {
             const $modal = $(this);
@@ -181,12 +178,11 @@ if (typeof jQuery !== "undefined" && typeof $.fn.slick !== "undefined") {
                 }
             }
         });
-
+        
         // Закриття за допомогою клавіші Escape та перелистування стрілками
         $(document).on("keydown", function (e) {
             const $modal = $("#fullscreenModal");
             const $modalSlider = $("#fullscreenModalSlider");
-
             if ($modal.hasClass("fullscreen-modal--active")) {
                 if (e.key === "Escape") {
                     $modal.removeClass("fullscreen-modal--active");
@@ -209,4 +205,45 @@ if (typeof jQuery !== "undefined" && typeof $.fn.slick !== "undefined") {
     });
 } else {
     console.warn("jQuery або Slick Slider не завантажено. Слайдери не будуть ініціалізовані.");
+}
+
+// FAQ секція
+const faqSection = document.querySelector("#faq__section");
+if (faqSection) {
+    function closeAllAnswers() {
+        const allAnswers = faqSection.querySelectorAll('.faq__section-answer');
+        const allHamburgers = faqSection.querySelectorAll('.hamburger');
+        const allItems = faqSection.querySelectorAll('.faq__section-item');
+        allAnswers.forEach(ans => ans.style.display = 'none');
+        allHamburgers.forEach(hamb => hamb.classList.remove('is-active'));
+        allItems.forEach(item => item.classList.remove('active'));
+    }
+    
+    faqSection.addEventListener('click', (e) => {
+        const question = e.target.closest('.faq__section-question');
+        if (question) {
+            const answer = question.nextElementSibling;
+            const hamburger = question.querySelector('.hamburger');
+            const faqItem = question.parentElement;
+            if (answer && hamburger && faqItem) {
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                    hamburger.classList.remove('is-active');
+                    faqItem.classList.remove('active');
+                } else {
+                    closeAllAnswers();
+                    answer.style.display = 'block';
+                    hamburger.classList.add('is-active');
+                    faqItem.classList.add('active');
+                }
+            }
+        } else {
+            // Клік НЕ по питанню - виправлено, щоб не закривати відповіді 
+            // при кліку на будь-яку частину FAQ секції
+            const insideAnswer = e.target.closest('.faq__section-answer');
+            if (!insideAnswer) {
+                closeAllAnswers();
+            }
+        }
+    });
 }
