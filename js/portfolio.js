@@ -81,6 +81,7 @@ if (typeof jQuery !== "undefined" && typeof $.fn.slick !== "undefined") {
                 slidesToScroll: 1,
                 arrows: false,
                 fade: true,
+                swipe: true,
                 asNavFor: `.slider-nav-${index}`,
             });
             
@@ -88,7 +89,7 @@ if (typeof jQuery !== "undefined" && typeof $.fn.slick !== "undefined") {
                 slidesToShow: 3,
                 slidesToScroll: 1,
                 asNavFor: `.slider-for-${index}`,
-                dots: true,
+                // dots: true,
                 centerMode: true,
                 focusOnSelect: true,
                 responsive: [

@@ -126,6 +126,9 @@ body {
     margin-bottom: 20px;
     text-align: center;
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
 }
 
 .category__title::after {
@@ -141,7 +144,7 @@ body {
 }
 
 .category__title:hover::after {
-    width: 50%;
+    width: 100%;
 }
 
 .category__intro {
@@ -207,6 +210,10 @@ body {
 
 .slider-nav {
     margin: 10px 0;
+}
+
+.slider-nav .slick-slide {
+    margin: 0 5px;
 }
 
 .slider-nav img {
