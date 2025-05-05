@@ -9,6 +9,7 @@ html {
 
 body {
     font-family: 'Montserrat';
+    background-color: #f8f4f0;
 }
 
 .container{
@@ -147,6 +148,12 @@ body {
     color: #2a2929;
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s;
+}
+
+.header__nav-burger-item:hover,
+.header__contacts-burger-link:hover {
+    background-color: rgba(178, 105, 53, 0.1);
+    color: rgb(178, 105, 53);
 }
 
 @media (max-width: 1320px){
