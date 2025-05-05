@@ -1,4 +1,3 @@
-// Бургер-меню
 const contactsBurger = document.querySelector("#header__contacts-burger");
 const contactsBurgerList = document.querySelector("#contacts-burger-list");
 const headerNavBurger = document.querySelector("#header__nav-burger");

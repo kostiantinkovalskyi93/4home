@@ -1,4 +1,3 @@
-
 const faqSection = document.querySelector("#faq__section");
 if (faqSection) {
     function closeAllAnswers() {

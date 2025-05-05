@@ -1,4 +1,3 @@
-
 if (typeof jQuery !== "undefined" && typeof $.fn.slick !== "undefined") {
     $(document).ready(function () {
         $(".category__slider-block").each(function (index) {
@@ -21,7 +20,6 @@ if (typeof jQuery !== "undefined" && typeof $.fn.slick !== "undefined") {
                 slidesToShow: 3,
                 slidesToScroll: 1,
                 asNavFor: `.slider-for-${index}`,
-                // dots: true,
                 centerMode: true,
                 focusOnSelect: true,
                 responsive: [
