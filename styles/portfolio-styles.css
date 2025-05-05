@@ -102,34 +102,6 @@
 }
 
 @media (min-width: 768px) {
-    .header {
-        height: 80px;
-    }
-
-    .header__logo {
-        width: 150px;
-    }
-
-    .header__nav-burger,
-    .header__contacts-burger {
-        display: none;
-    }
-
-    .header__nav-list {
-        display: flex;
-        gap: 20px;
-        font-size: 16px;
-    }
-
-    .header__contacts {
-        display: none;
-    }
-
-    .contacts-burger-list,
-    .nav-burger-list {
-        top: 80px;
-    }
-
     .portfolio__section {
         padding: 100px 0 40px;
     }
@@ -156,46 +128,9 @@
         width: 100%;
         height: 340px;
     }
-
-    .footer__column {
-        min-width: 200px;
-    }
-
-    .footer__scroll-top {
-        width: 50px;
-        height: 50px;
-    }
-
-    .footer__scroll-arrow {
-        width: 14px;
-        height: 20px;
-    }
 }
 
 @media (min-width: 1320px) {
-    .header__nav-list {
-        font-size: 18px;
-    }
-
-    .header__contacts {
-        display: flex;
-        gap: 20px;
-    }
-
-    .header__contact-icon {
-        width: 20px;
-        height: 20px;
-    }
-
-    .header__contacts-link {
-        font-size: 16px;
-    }
-
-    .header__nav-link:hover,
-    .header__contacts-link:hover {
-        color: #007bff;
-    }
-
     .portfolio__section-title {
         font-size: 40px;
         margin-bottom: 40px;
