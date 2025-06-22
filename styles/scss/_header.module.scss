@@ -1,0 +1,240 @@
+@use './_variables.scss' as *;
+@use './_mixins.scss' as *;
+@use './main/_modal.module.scss' as *;
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-VariableFont_wght.ttf');
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: $font-family;
+    background-color: $background-color;
+}
+
+.container {
+    max-width: $container-width;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.header {
+    position: fixed;
+    padding: 5px 0;
+    width: 100%;
+    background-color: $header-bg;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    height: 80px;
+    display: flex;
+    align-items: center;
+
+    &__block {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    &__logo {
+        width: 150px;
+        flex-shrink: 0;
+
+        &-img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__contacts {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        &-burger {
+            display: none;
+        }
+
+        &-item {
+            display: flex;
+            align-items: center;
+        }
+
+        &-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+
+        &-link {
+            font-size: 16px;
+            color: $link-color;
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: $link-hover;
+            }
+        }
+    }
+
+    &__nav {
+        &-list {
+            display: flex;
+            gap: 20px;
+            font-size: clamp(14px, 1.5vw, 18px);
+            font-weight: 500;
+            color: $secondary-color;
+            transition: color 0.3s ease-in;
+            margin: 0;
+            padding: 0;
+        }
+
+        &-link {
+            color: $link-color;
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: $link-hover;
+            }
+        }
+
+        &-burger {
+            display: none;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        &-burger-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        &-burger-item {
+            padding: 10px 15px;
+            font-size: clamp(16px, 2vw, 18px);
+            font-weight: 500;
+            color: $secondary-color;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s;
+
+            &:hover {
+                background-color: rgba($primary-color, 0.1);
+                color: $primary-color;
+            }
+        }
+    }
+
+    .contacts-burger-list,
+    .nav-burger-list {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        max-width: 300px;
+        background-color: rgba(238, 228, 228, 0.95);
+        box-shadow: $shadow;
+        border-radius: 0 0 10px 0;
+        padding: 15px;
+        z-index: 999;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.3s ease, transform 0.3s;
+    }
+
+    .contacts-burger-activ,
+    .nav-burger-activ {
+        position: absolute;
+        top: 80px;
+        right: 0;
+        left: auto;
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(222, 198, 198, 0.99);
+        opacity: 1;
+        transform: translateY(0);
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .header__contacts-burger-link {
+        padding: 10px 15px;
+        font-size: clamp(16px, 2vw, 18px);
+        font-weight: 500;
+        color: $secondary-color;
+        text-decoration: none;
+        transition: background-color 0.3s ease, color 0.3s;
+
+        &:hover {
+            background-color: rgba($primary-color, 0.1);
+            color: $primary-color;
+        }
+    }
+
+    @media (max-width: 1320px) {
+        &__contact-item {
+            display: none;
+        }
+
+        &__contacts-burger {
+            display: block;
+            padding-right: 10%;
+            cursor: pointer;
+        }
+
+        &__contact-icon {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    @media (max-width: 1000px) {
+        &__contacts-burger {
+            display: none;
+        }
+
+        &__nav-list {
+            display: none;
+        }
+
+        &__nav-burger {
+            display: block;
+        }
+
+        .nav-burger-activ {
+            top: 80px;
+            right: 0;
+            width: calc(100% - 30px);
+            max-width: 300px;
+        }
+    }
+}
+
+.header {
+    &__contacts {
+        &-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            object-fit: contain;
+        }
+
+        @media (max-width: 1320px) {
+            &__contact-icon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+}

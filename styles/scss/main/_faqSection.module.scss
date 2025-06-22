@@ -1,0 +1,146 @@
+@use '../_variables.scss' as *;
+@use '../_mixins.scss' as *;
+
+#faq__section {
+    position: relative;
+
+    &:before {
+        content: '';
+        display: block;
+        height: 80px;
+        visibility: hidden;
+    }
+
+    &-container {
+        position: relative;
+        padding: 5px 5px 40px;
+        margin: 0 auto;
+        width: 100%;
+        max-width: $container-width;
+    }
+
+    &-subtitle {
+        font-size: clamp(20px, 2.5vw, 25px);
+        margin: 1rem 0;
+        color: $primary-color;
+        position: relative;
+        display: inline-block;
+        @include underline-effect-left($primary-color);
+    }
+
+    &-item {
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        letter-spacing: 0.03vh;
+        background-color: rgb(183, 143, 118);
+        color: white;
+        transition: background-color 0.35s ease, color 0.35s ease;
+
+        &.active {
+            background-color: hsla(0, 0%, 0%, 0.784);
+            color: white;
+        }
+    }
+
+    &-question {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: $primary-color;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 14px;
+        }
+    }
+
+    &-answer {
+        margin-top: 10px;
+        padding-left: 30px;
+        display: none;
+        color: inherit;
+        font-size: 14px;
+        line-height: 1.5;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
+
+        &[style*="display: block"] {
+            max-height: 200px;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 12px;
+            padding-left: 20px;
+        }
+    }
+}
+
+.toggle-btn {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    font-size: 18px;
+    text-align: center;
+    line-height: 20px;
+    color: inherit;
+    transition: transform 0.3s ease;
+
+    .faq__section-item.active & {
+        transform: rotate(45deg);
+    }
+}
+
+.three.col {
+    padding: 0;
+    margin: 0 10px 0 0;
+    width: 40px;
+    background: none;
+}
+
+.hamburger {
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .line {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        display: block;
+        margin: 3px auto;
+        transition: all 0.3s ease-in-out;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+#hamburger-10 {
+    transition: all 0.3s ease-in-out;
+
+    &.is-active {
+        transform: rotate(90deg);
+
+        .line:nth-child(1) {
+            width: 20px;
+        }
+
+        .line:nth-child(2) {
+            width: 25px;
+        }
+    }
+}
