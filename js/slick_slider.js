@@ -6,6 +6,69 @@ if (typeof jQuery !== "undefined" && typeof $.fn.slick !== "undefined") {
             
             $sliderFor.addClass(`slider-for-${index}`);
             $sliderNav.addClass(`slider-nav-${index}`);
+
+            const slideCount = $sliderNav.find(".slick-slide").length || $sliderNav.children().length;
+            
+            const navSettings = {
+                slidesToShow: slideCount <= 3 ? slideCount : 3,
+                slidesToScroll: 1,
+                asNavFor: `.slider-for-${index}`,
+                centerMode: slideCount > 3,
+                focusOnSelect: true,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: slideCount <= 3 ? slideCount : 2,
+                            centerMode: slideCount > 3,
+                        },
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            centerMode: slideCount > 3,
+                        },
+                    },
+                ],
+            };
+            
+            if (slideCount <= 3) {
+                const styleId = `slider-nav-style-${index}`;
+                if (!$(`#${styleId}`).length) {
+                    $("<style>")
+                        .prop("id", styleId)
+                        .html(`
+                            .slider-nav-${index}.slick-slider {
+                                display: flex !important;
+                                justify-content: center;
+                                min-width: 100%;
+                            }
+                            .slider-nav-${index} .slick-track {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                min-width: 100%;
+                            }
+                            .slider-nav-${index} .slick-slide {
+                                float: none;
+                                display: inline-block;
+                                padding: 0 5px;
+                                width: ${100 / slideCount}%;
+                                min-width: 100px;
+                                max-width: 150px;
+                                box-sizing: border-box;
+                            }
+                                .slider-nav-${index} .slick-slide img {
+                                width: 100%;
+                                height: auto;
+                                 min-height: 100px; 
+                                object-fit: contain; /* Збереження пропорцій зображення */
+                            }
+                        `)
+                        .appendTo("head");
+                }
+            }
             
             $sliderFor.slick({
                 slidesToShow: 1,
@@ -16,27 +79,7 @@ if (typeof jQuery !== "undefined" && typeof $.fn.slick !== "undefined") {
                 asNavFor: `.slider-nav-${index}`,
             });
             
-            $sliderNav.slick({
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                asNavFor: `.slider-for-${index}`,
-                centerMode: true,
-                focusOnSelect: true,
-                responsive: [
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 2,
-                        },
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            slidesToShow: 1,
-                        },
-                    },
-                ],
-            });
+             $sliderNav.slick(navSettings);
             
             $sliderFor.on("click", "img", function (e) {
                 e.preventDefault();

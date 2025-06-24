@@ -548,7 +548,7 @@ body {
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
-  background-image: url("../img/icons/check-icon.png");
+  background-image: url("/img/icons/check-icon.png");
   background-size: contain;
   background-repeat: no-repeat;
   z-index: 2;
@@ -810,20 +810,19 @@ body {
   resize: none;
 }
 .contact__form-button {
-  padding: 12px 20px;
-  font-size: 18px;
-  font-weight: 500;
-  color: #fff;
-  background-color: rgb(178, 105, 53);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  max-width: 200px;
-  margin: 0 auto;
+    display: inline-block;
+    padding: 12px 32px;
+    background: linear-gradient(90deg, rgb(200, 130, 80), rgb(178, 105, 53), rgb(150, 80, 40));
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.4s ease;
 }
 .contact__form-button:hover {
-  background-color: rgb(150, 85, 40);
+    background: linear-gradient(90deg, rgb(150, 80, 40), rgb(178, 105, 53), rgb(200, 130, 80));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(178, 105, 53, 0.3);
 }
 @media (max-width: 768px) {
   .contact__form-button {
