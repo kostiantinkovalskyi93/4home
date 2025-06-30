@@ -32,42 +32,9 @@ if (typeof jQuery !== "undefined" && typeof $.fn.slick !== "undefined") {
                     },
                 ],
             };
-            
             if (slideCount <= 3) {
-                const styleId = `slider-nav-style-${index}`;
-                if (!$(`#${styleId}`).length) {
-                    $("<style>")
-                        .prop("id", styleId)
-                        .html(`
-                            .slider-nav-${index}.slick-slider {
-                                display: flex !important;
-                                justify-content: center;
-                                min-width: 100%;
-                            }
-                            .slider-nav-${index} .slick-track {
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                min-width: 100%;
-                            }
-                            .slider-nav-${index} .slick-slide {
-                                float: none;
-                                display: inline-block;
-                                padding: 0 5px;
-                                width: ${100 / slideCount}%;
-                                min-width: 100px;
-                                max-width: 150px;
-                                box-sizing: border-box;
-                            }
-                                .slider-nav-${index} .slick-slide img {
-                                width: 100%;
-                                height: auto;
-                                 min-height: 100px; 
-                                object-fit: contain; /* Збереження пропорцій зображення */
-                            }
-                        `)
-                        .appendTo("head");
-                }
+                const sliderNav = $(`.slider-nav-${index}`);
+                sliderNav.addClass(`slider-nav slide-count-${slideCount}`);
             }
             
             $sliderFor.slick({
@@ -162,4 +129,4 @@ if (typeof jQuery !== "undefined" && typeof $.fn.slick !== "undefined") {
     });
 } else {
     console.warn("jQuery або Slick Slider не завантажено. Слайдери не будуть ініціалізовані.");
-}
+  }
