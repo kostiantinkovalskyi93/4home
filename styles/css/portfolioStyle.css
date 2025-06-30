@@ -9,11 +9,9 @@
 .category__title {
   font-size: 20px;
   color: rgb(178, 105, 53);
-  margin-bottom: 20px;
+  margin: 20px auto 20px auto;
   text-align: center;
   position: relative;
-  margin-left: auto;
-  margin-right: auto;
   width: fit-content;
   position: relative;
 }
