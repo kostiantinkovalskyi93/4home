@@ -2,7 +2,7 @@ document.getElementById("contact-form").addEventListener("submit", async functio
     e.preventDefault();
 
     const token = "8127761848:AAFBEcLNzS0mnI9eSi0r6JY6JmcTtQnxGSQ";
-    const chat_id = "7804834224";
+    const chat_id = "380836331";
     const apiUrl = `https://api.telegram.org/bot${token}/sendMessage`;
 
     const name = document.getElementById("name").value.trim();
