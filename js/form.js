@@ -10,7 +10,7 @@ document.getElementById("contact-form").addEventListener("submit", async functio
     const email = document.getElementById("email").value.trim();
     const comment = document.getElementById("comment").value.trim();
     const message = `
-<b>Нова заявка з сайту 4home</b>
+<b>Нова заявка з сайту 4Home</b>
 👤 Ім’я: ${name}
 📞 Телефон: ${phone}
 📧 Email: ${email || "Не вказано"}
