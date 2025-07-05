@@ -241,8 +241,8 @@
   width: 100%;
   height: auto;
   max-height: calc(100vh - 150px);
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
   margin: 0 auto;
 }
@@ -683,12 +683,14 @@ body {
 @media (min-width: 768px) {
   .portfolio__section-title {
     font-size: 24px;
+    margin-top: 10px;
     margin-bottom: 30px;
   }
 }
 @media (min-width: 1320px) {
   .portfolio__section-title {
     font-size: 40px;
+    margin-top: 20px;
     margin-bottom: 40px;
   }
 }
@@ -810,7 +812,7 @@ body {
     height: auto;
     min-height: 100px;
     max-height: 140px;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .slider-nav.slide-count-1 .slick-slide {

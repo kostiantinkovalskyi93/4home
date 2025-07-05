@@ -15,6 +15,7 @@ if (typeof jQuery !== "undefined" && typeof $.fn.slick !== "undefined") {
                 asNavFor: `.slider-for-${index}`,
                 centerMode: slideCount > 3,
                 focusOnSelect: true,
+                infinite: true,
                 responsive: [
                     {
                         breakpoint: 768,
@@ -43,6 +44,7 @@ if (typeof jQuery !== "undefined" && typeof $.fn.slick !== "undefined") {
                 arrows: false,
                 fade: true,
                 swipe: true,
+                infinite: true,
                 asNavFor: `.slider-nav-${index}`,
             });
             
